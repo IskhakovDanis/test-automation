@@ -1,8 +1,11 @@
 trigger:
-- master
+- main
+#trigger = [main]
 
 pool:
    vmImage: 'windows-latest'
+
+#pool = {vmImage:"windows-latest"}
 
 steps:
 - task: UsePythonVersion@0
