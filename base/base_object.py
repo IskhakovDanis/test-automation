@@ -22,7 +22,12 @@ class BaseObject:
             self.LOG.info(f"element {locator} is INvisible")
 
     def _is_clickable(self, locator: tuple) -> WebElement:
-        return self.wait.until(ec.element_to_be_clickable(locator))
+        try:
+            x = self.wait.until(ec.element_to_be_clickable(locator))
+            self.LOG.info(f"element {locator} is clickable")
+            return x
+        except:
+            self.LOG.info(f"element {locator} is INclickable")
 
     def click(self, locator: tuple) -> None:
         self._is_clickable(locator).click()

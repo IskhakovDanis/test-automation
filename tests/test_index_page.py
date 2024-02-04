@@ -7,11 +7,11 @@ import allure
 # @allure.title('Successful login')
 # @allure.suite('Authorization suite')
 # @allure.severity(allure.severity_level.BLOCKER)
-# def test_successful_login(index_page):
-#     index_page.input_username()
-#     index_page.input_password()
-#     index_page.click_to_login_btn()
-    #index_page.check_url()
+def test_successful_login(index_page):
+    index_page.input_username()
+    # index_page.input_password()
+    # index_page.click_to_login_btn()
+    # index_page.check_url()
 
 
 case_1 = ["correct_username", "incorrect_password", "Password or username is incorrect"]
