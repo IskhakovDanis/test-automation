@@ -34,6 +34,7 @@ class  IndexPage(BaseObject, Assertions):
         self.assert_equal(actual=self.get_url(),
                           expected="")
 
+
     @allure.step("checking error message")
     def check_error_msg(self, error_msg):
         self.assert_equal(actual=self.get_text(self.ERROR_MSG),
