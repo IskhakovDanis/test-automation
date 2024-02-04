@@ -2,12 +2,11 @@ from base.base_object import BaseObject
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from support.assertions import Assertions
-from support.data_for_tests import Data
 import allure
 
 
 
-class  IndexPage(BaseObject, Assertions, Data):
+class  IndexPage(BaseObject, Assertions):
 
     USERNAME_FIELD = (By.ID, "usernam")
     PASSWORD_FIELD = (By.ID, "password")
@@ -32,8 +31,8 @@ class  IndexPage(BaseObject, Assertions, Data):
 
     @allure.step("checking url")
     def check_url(self):
-        self.assert_equal(self.get_url(),
-                          self.get_info("hover_and_select_url"))
+        self.assert_equal(actual=self.get_url(),
+                          expected="")
 
     @allure.step("checking error message")
     def check_error_msg(self, error_msg):

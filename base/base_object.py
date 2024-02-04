@@ -2,23 +2,22 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
-from support.logger import log_func, log_func_for_error
+from support.logger import log_func
 
 
 class BaseObject:
 
     LOG = log_func()
-    LOG_ERROR = log_func_for_error()
+
     def __init__(self, driver: WebDriver):
         self.driver = driver
         self.wait = WebDriverWait(driver, 5)
 
     def _is_visible(self, locator: tuple) -> WebElement:
         try:
-
-            self.LOG.info(f"element {locator} is visible1")
-            return self.wait.until(ec.visibility_of_element_located(locator))
-            #self.LOG_ERROR.info(f"element {locator} is visible2")
+            x = self.wait.until(ec.visibility_of_element_located(locator))
+            self.LOG.info(f"element {locator} is visible")
+            return x
         except:
             self.LOG.info(f"element {locator} is INvisible")
 
@@ -37,8 +36,6 @@ class BaseObject:
     def get_url(self):
         return self.driver.current_url
 
-
-    #TODO
     def _is_invisible(self, locator: tuple):
         return self.wait.until(ec.invisibility_of_element_located(locator))
 
