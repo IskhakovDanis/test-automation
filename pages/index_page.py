@@ -8,7 +8,7 @@ import allure
 
 class  IndexPage(BaseObject, Assertions):
 
-    USERNAME_FIELD = (By.ID, "usernamego")
+    USERNAME_FIELD = (By.ID, "username")
     PASSWORD_FIELD = (By.ID, "password")
     LOGIN_BTN = (By.CLASS_NAME, "login-button")
     ERROR_MSG = (By.CLASS_NAME, 'error-message')
