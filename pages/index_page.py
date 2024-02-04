@@ -18,7 +18,7 @@ class  IndexPage(BaseObject, Assertions):
         super().__init__(driver)
 
     @allure.step("Username added")
-    def input_username(self, username=""):
+    def input_username(self, username):
         self.send_keys(locator=self.USERNAME_FIELD, value=username)
 
     @allure.step("Password added")

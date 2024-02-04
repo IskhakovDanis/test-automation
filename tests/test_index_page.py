@@ -1,20 +1,20 @@
 from pytest import mark
 import allure
+from env_config import Secrets
 
-
-# @allure.description('Success login')
-# @allure.label('owner', 'Danis')
-# @allure.title('Successful login')
-# @allure.suite('Authorization suite')
-# @allure.severity(allure.severity_level.BLOCKER)
+@allure.description('Success login')
+@allure.label('owner', 'Danis')
+@allure.title('Successful login')
+@allure.suite('Authorization suite')
+@allure.severity(allure.severity_level.BLOCKER)
 def test_successful_login(index_page):
-    index_page.input_username()
-    # index_page.input_password()
-    # index_page.click_to_login_btn()
-    # index_page.check_url()
+    index_page.input_username(username=Secrets.USERNAME)
+    index_page.input_password(password=Secrets.PASSWORD)
+    index_page.click_to_login_btn()
+    index_page.check_url()
 
 
-case_1 = ["correct_username", "incorrect_password", "Password or username is incorrect"]
+case_1 = [Secrets.USERNAME, "incorrect_password", "Password or username is incorrect"]
 case_2 = ['', "incorrect_password", "Username field cannot be empty"]
 case_3 = ['incorrect_password', "", "Password field cannot be empty"]
 

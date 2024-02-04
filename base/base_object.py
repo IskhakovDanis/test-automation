@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from support.logger import log_func
-
+from selenium.common import TimeoutException
 
 class BaseObject:
 
@@ -15,11 +15,12 @@ class BaseObject:
 
     def _is_visible(self, locator: tuple) -> WebElement:
         try:
-            x = self.wait.until(ec.visibility_of_element_located(locator))
+            element = self.wait.until(ec.visibility_of_element_located(locator))
             self.LOG.info(f"element {locator} is visible")
-            return x
-        except:
-            self.LOG.info(f"element {locator} is INvisible")
+            return element
+        except TimeoutException:
+            self.LOG.error(f"element {locator} is INvisible")
+            raise TimeoutException(f"element {locator} is not visible during specified time")
 
     def _is_clickable(self, locator: tuple) -> WebElement:
         try:
