@@ -6,7 +6,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from pages.index_page import IndexPage
 from pages.input_and_click_page import InputAndClickPage
 from env_config import ConfigURL
-
+from pages.drag_and_drop_page import DragAndDrop
+import time
 
 @pytest.fixture
 def get_chrome_options():
@@ -39,4 +40,11 @@ def index_page(get_webdriver):
 def input_and_click_page(get_webdriver):
     get_webdriver.get(ConfigURL.INPUT_AND_CLICK)
     yield InputAndClickPage(get_webdriver)
+    get_webdriver.quit()
+
+@pytest.fixture
+def drag_and_drop_page(get_webdriver):
+    get_webdriver.get(ConfigURL.DRAG_AND_DROP)
+    yield DragAndDrop(get_webdriver)
+    time.sleep(5)
     get_webdriver.quit()

@@ -29,11 +29,14 @@ class  IndexPage(BaseObject, Assertions):
     def click_to_login_btn(self):
         self.click(self.LOGIN_BTN)
 
+    @allure.step("click Enter")
+    def click_enter(self):
+        self.simulate_enter_click(self.LOGIN_BTN)
+
     @allure.step("checking url")
     def check_url(self):
         self.assert_equal(actual=self.get_url(),
-                          expected="")
-
+                          expected="https://toghrulmirzayev.github.io/ui-simulator/")
 
     @allure.step("checking error message")
     def check_error_msg(self, error_msg):

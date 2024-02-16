@@ -1,10 +1,18 @@
+from dotenv import load_dotenv
 import os
-from support.json_handler import JSONHandler
+
+load_dotenv()
+
+TOKEN_1 = os.getenv("TOKEN_1")
+TOKEN_2 = os.getenv("TOKEN_2")
 
 
-class ConfigPath:
-    ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
-    SECRETS = os.path.join(ROOT_PATH, "files", "secrets.json")
+def test_encryption(): # try printing your secrets while running the code in CI to check if they are really encrypted
+    print(TOKEN_1)
+    print(TOKEN_2)
+
+
+
 
 
 class ConfigURL:
@@ -13,10 +21,3 @@ class ConfigURL:
     INPUT_AND_CLICK = f"{BASE_URL}/input-and-click.html"
     DRAG_AND_DROP = f"{BASE_URL}/drag-and-drop.html"
 
-class Secrets:
-
-    USERNAME = JSONHandler.load_json('username', ConfigPath.SECRETS)
-    PASSWORD = JSONHandler.load_json('password', ConfigPath.SECRETS)
-
-print(f"secret username is {Secrets.USERNAME}")
-print(f"secret username is {Secrets.PASSWORD}")
