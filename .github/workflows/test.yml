@@ -35,7 +35,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -m homework
+          pytest -m homework --junitxml=result.xml -o junit_family="xunit1" --pyreport --telegram-pyreport 462778836 7032014321:AAGfMEXsU5wsx59h3lKpQyIEpd7eVwJIMCI --server https://iskhakovdanis.github.io/test-automation/
 
       - name: Generate Allure report
         run: |
