@@ -1,0 +1,56 @@
+{
+  "uid" : "d53731a4f751dbf7",
+  "name" : "test_1",
+  "fullName" : "tests.test_input_and_click_page#test_1",
+  "historyId" : "3b97485aa2be41357a42af4a5e6ac6cd",
+  "time" : {
+    "start" : 1711215620544,
+    "stop" : 1711215620544,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "homework"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_input_and_click_page"
+  }, {
+    "name" : "host",
+    "value" : "fv-az1196-255"
+  }, {
+    "name" : "thread",
+    "value" : "4236-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_input_and_click_page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "homework" ]
+  },
+  "source" : "d53731a4f751dbf7.json",
+  "parameterValues" : [ ]
+}
