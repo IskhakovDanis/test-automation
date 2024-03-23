@@ -1,11 +1,11 @@
 {
-  "uid" : "27a502f6ab812e0b",
+  "uid" : "23a84f28c87d77be",
   "name" : "test_1",
   "fullName" : "tests.test_input_and_click_page#test_1",
   "historyId" : "3b97485aa2be41357a42af4a5e6ac6cd",
   "time" : {
-    "start" : 1711216042038,
-    "stop" : 1711216042038,
+    "start" : 1711216183601,
+    "stop" : 1711216183601,
     "duration" : 0
   },
   "status" : "passed",
@@ -24,10 +24,10 @@
     "value" : "test_input_and_click_page"
   }, {
     "name" : "host",
-    "value" : "fv-az1426-296"
+    "value" : "fv-az525-520"
   }, {
     "name" : "thread",
-    "value" : "4214-MainThread"
+    "value" : "4166-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -51,6 +51,6 @@
     "categories" : [ ],
     "tags" : [ "homework" ]
   },
-  "source" : "27a502f6ab812e0b.json",
+  "source" : "23a84f28c87d77be.json",
   "parameterValues" : [ ]
 }
