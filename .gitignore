@@ -9,3 +9,4 @@ venv
 **/test_report.json
 **/test_results.png
 .env
+**/test_for_local_start.py

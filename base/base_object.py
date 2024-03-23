@@ -34,52 +34,129 @@ class BaseObject:
             self.LOG.info(f"element {locator} is clickable")
             return element
         except TimeoutException:
-            self.LOG.info(f"element {locator} is INclickable")
+            self.LOG.error(f"element {locator} is INclickable")
             raise TimeoutException(f"element {locator} is not clicable during specified time")
 
     def click(self, locator: tuple) -> None:
-        self._is_clickable(locator).click()
+        try:
+            self._is_clickable(locator).click()
+            self.LOG.info(f"element {locator} is click")
+        except TimeoutException:
+            self.LOG.error(f"element {locator} is unavailable for click")
+            raise TimeoutException(f"element {locator} is not clicable during specified time")
 
     def send_keys(self, locator: tuple, value: str):
-        self._is_visible(locator).send_keys(value)
+        try:
+            self._is_visible(locator).send_keys(value)
+            self.LOG.info(f"element {locator} is sended data")
+        except TimeoutException:
+            self.LOG.error(f"element {locator} is NOT sended data ")
+            raise TimeoutException(f"element {locator} is not clicable during specified time")
+
 
     def get_text(self, locator):
-        return self._is_visible(locator).text
+        try:
+            x = self._is_visible(locator).text
+            self.LOG.info(f"element {locator} is sended data")
+            return x
+        except TimeoutException:
+            self.LOG.error(f"element {locator} is NOT sended data ")
+            raise TimeoutException(f"element {locator} is not clicable during specified time")
+
 
     def get_url(self):
-        return self.driver.current_url
+        try:
+            x = self.driver.current_url
+            self.LOG.info(f"element gived url")
+            return x
+        except TimeoutException:
+            self.LOG.error(f"element is NOT gived data ")
+            raise TimeoutException(f"element  is not clicable during specified time")
+
 
     def _is_invisible(self, locator: tuple):
-        return self.wait.until(ec.invisibility_of_element_located(locator))
+
+        try:
+            x = self.wait.until(ec.invisibility_of_element_located(locator))
+            self.LOG.info(f"element is Invisible")
+            return x
+        except TimeoutException:
+            self.LOG.error(f"element is NOT Invisible ")
+            raise TimeoutException(f"element  is not clicable during specified time")
+
 
     def check_invisible_obj(self, locator: tuple):
-        return self._is_invisible(locator)
+        try:
+            x = self._is_invisible(locator)
+            self.LOG.info(f"element is Invisible")
+            return x
+        except TimeoutException:
+            self.LOG.error(f"element is NOT Invisible ")
+            raise TimeoutException(f"element  is not clicable during specified time")
+
 
     def simulate_enter_click(self, locator: tuple):
-        self.send_keys(locator, Keys.RETURN)
+        try:
+            self.send_keys(locator, Keys.RETURN)
+            self.LOG.info(f"element {locator} is enter_click")
+        except TimeoutException:
+            self.LOG.error(f"element {locator} is unavailable for enter_click")
+            raise TimeoutException(f"element {locator} is not clicable during specified time")
+
 
     def get_attribute_of_elements(self, locator: tuple):
-        image_element = self._is_visible(locator)
-        actual_text = image_element.get_attribute("src")
-        return actual_text
+        try:
+            attribute_elem = self._is_visible(locator).get_attribute("src")
+            self.LOG.info(f"element {locator} is getted atrribute")
+            return attribute_elem
+        except TimeoutException:
+            self.LOG.error(f"element {locator} is NOT getted attribute_elem  ")
+            raise TimeoutException(f"element {locator} is not clicable during specified time")
+        # image_element = self._is_visible(locator)
+        # actual_text = image_element.get_attribute("src")
+        # return actual_text
 
     def scroll_to_element(self, locator: tuple):
+        try:
+            element = self._is_visible(locator)
+            self.actions.move_to_element(element).perform()
+            self.LOG.info(f"element {locator} is scroll_to_element")
+        except TimeoutException:
+            self.LOG.error(f"element {locator} is NOT scroll_to_element")
+            raise TimeoutException(f"element {locator} is not clicable during specified time")
+
         element = self._is_visible(locator)
         self.actions.move_to_element(element).perform()
 
     def hover_mouse(self, locator: tuple):
-        elem = self._is_visible(locator)
-        self.mouse.move_to_element(elem).perform()
+        try:
+            elem = self._is_visible(locator)
+            self.mouse.move_to_element(elem).perform()
+            self.LOG.info(f"element {locator} is hover_mouse")
+        except TimeoutException:
+            self.LOG.error(f"element {locator} is NOT hover_mouse")
+            raise TimeoutException(f"element {locator} is not clicable during specified time")
 
     def drop_down(self, locator: tuple):
-        dropdown = self._is_visible(locator)
-        select = Select(dropdown)
-        select.select_by_visible_text("I")
+        try:
+            dropdown = self._is_visible(locator)
+            select = Select(dropdown)
+            select.select_by_visible_text("I")
+            self.LOG.info(f"element {locator} is scroll_to_element")
+        except TimeoutException:
+            self.LOG.error(f"element {locator} is NOT scroll_to_element")
+            raise TimeoutException(f"element {locator} is not clicable during specified time")
+
 
     def drag_and_drop(self, locator1: tuple, locator2: tuple):
-        to_drag_elem = self._is_visible(locator1)  # находим элемент который будем тянуть
-        to_drop_elem = self._is_visible(locator2)  # находим элемент куда будем тянуть первый элемент
-        self.actions.drag_and_drop(to_drag_elem, to_drop_elem).perform()
+        try:
+            to_drag_elem = self._is_visible(locator1)  # находим элемент который будем тянуть
+            to_drop_elem = self._is_visible(locator2)  # находим элемент куда будем тянуть первый элемент
+            self.actions.drag_and_drop(to_drag_elem, to_drop_elem).perform()
+            self.LOG.info(f"element {locator1} and {locator2} drag and droped")
+        except TimeoutException:
+            self.LOG.error(f"element {locator1} or {locator2} NOT drag and droped ")
+            raise TimeoutException(f"element {locator1} or {locator2} is not clicable during specified time")
 
 
 

@@ -14,6 +14,7 @@ class  DragAndDrop(BaseObject, Assertions):
     def __init__(self, driver: WebDriver):
         super().__init__(driver)
 
+    @allure.step("element selected")
     def select_elem(self):
         self.drag_and_drop(self.TO_DRAG_ELEM, self.TO_DROP_ELEM)
 

@@ -13,6 +13,7 @@ class InputAndClickPage(BaseObject, Assertions):
     BACK_BUTTON = (By.CSS_SELECTOR, ".back-button")
     ITEMS = (By.CSS_SELECTOR, "#items > div:nth-child(1)")
 
+
     def __init__(self, driver : WebDriver):
         super().__init__(driver)
 
