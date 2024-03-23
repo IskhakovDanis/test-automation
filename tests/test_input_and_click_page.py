@@ -3,8 +3,7 @@
 from pytest import mark
 
 
-# @mark.homework
-
+@mark.homework
 def test_input_and_click(input_and_click_page):
     input_and_click_page.input_text()
     input_and_click_page.click_add_btn()
