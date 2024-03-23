@@ -10,6 +10,7 @@ def test_input_and_click(input_and_click_page):
     input_and_click_page.check_items()
     input_and_click_page.click_dlt_btn()
 
+
 @mark.homework
 def test_1():
     pass
