@@ -6,12 +6,12 @@
       "name" : "test_input_and_click_page",
       "children" : [ {
         "name" : "test_1",
-        "uid" : "23a84f28c87d77be",
+        "uid" : "dae0f91337bc146e",
         "parentUid" : "f14fdb8a8633e0771edbead29728fbe7",
         "status" : "passed",
         "time" : {
-          "start" : 1711216183601,
-          "stop" : 1711216183601,
+          "start" : 1716893165972,
+          "stop" : 1716893165972,
           "duration" : 0
         },
         "flaky" : false,
