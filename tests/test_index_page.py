@@ -27,6 +27,7 @@ case_3 = ['incorrect_password', "", "Password field cannot be empty"]
 @allure.suite('Authorization suite')
 @allure.severity(allure.severity_level.BLOCKER)
 @mark.parametrize('username, password, error_msg', (case_1, case_2, case_3))
+
 def test_unsuccessful_login(index_page, username, password, error_msg):
     index_page.input_username(username=username)
     index_page.input_password(password=password)
