@@ -16,7 +16,7 @@ def test_encryption(): # try printing your secrets while running the code in CI 
 
 
 class ConfigURL:
-    BASE_URL = "https://toghrulmirzayev.github.io/ui-simulator"
+    BASE_URL = "https://r"
     HOVER_AND_SELECT_URL = f"{BASE_URL}/hover_and_select.html"
     INPUT_AND_CLICK = f"{BASE_URL}/input-and-click.html"
     DRAG_AND_DROP = f"{BASE_URL}/drag-and-drop.html"
